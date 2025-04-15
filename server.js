@@ -37,9 +37,10 @@ app.post('/chat', async (req, res) => {
     });
 
     const reply = chatCompletion.choices[0].message.content;
+    console.log('✅ GPT 응답:', reply);
     res.json({ reply });
   } catch (error) {
-    console.error('GPT 오류:', error.message);
+    console.error('❌ GPT 오류 상세:', error);
     res.status(500).json({ error: 'GPT 응답 실패' });
   }
 });
