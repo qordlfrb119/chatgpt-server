@@ -13,6 +13,10 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
+app.get('/', (req, res) => {
+  res.send('✅ ChatChristian 서버가 정상 실행 중입니다.');
+});
+
 app.post('/chat', async (req, res) => {
   const userMessage = req.body.message;
 
@@ -42,3 +46,4 @@ app.post('/chat', async (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`✅ 서버 실행 중: http://localhost:${PORT}`));
+
