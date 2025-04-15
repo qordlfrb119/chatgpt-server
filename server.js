@@ -19,6 +19,7 @@ app.get('/', (req, res) => {
 
 app.post('/chat', async (req, res) => {
   const userMessage = req.body.message;
+console.log('사용자 입력:', userMessage); // ✅ 추가
 
   try {
     const chatCompletion = await openai.chat.completions.create({
